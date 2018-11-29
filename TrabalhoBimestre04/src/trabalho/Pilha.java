@@ -3,6 +3,7 @@ package trabalho;
 public class Pilha {
     
     private Elemento topo;
+    public int contador = 0;
     
     public boolean isEmpty() {
         return topo == null;
@@ -13,11 +14,13 @@ public class Pilha {
     }
     
     public void push(Object o) throws Exception {
+    	contador++;
         System.out.println("Adicionando " + o);
         topo = new Elemento(o, topo);
     }
 
     public Object pop() throws Exception {
+    	contador++;
         if (this.isEmpty()) {
             throw new Exception("Pilha vazia");
         }
@@ -30,6 +33,7 @@ public class Pilha {
     
     public void clear() {
         while (!this.isEmpty()) {
+        	contador++;
             try {
                 this.pop();
             } catch (Exception e){
@@ -41,6 +45,7 @@ public class Pilha {
     public void percorrer() {
         Elemento e = topo;
         while (e != null) {
+        	contador++;
             System.out.println("Valor: " + e.getValor());
             e = e.getAnterior();
         }
